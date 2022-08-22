@@ -2,9 +2,8 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Maven install') {
             steps {
-                git url: 'https://github.com/Lucas-knut/Jenkins-Maven'
                 withMaven (
                     maven: 'maven-3',
                 ){
