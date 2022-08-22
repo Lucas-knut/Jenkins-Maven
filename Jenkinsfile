@@ -5,19 +5,12 @@ pipeline {
         stage('Build') {
             steps {
                 git url: 'https://github.com/Lucas-knut/Jenkins-Maven'
-                withMaven {
+                withMaven (
+                    maven: 'maven-3',
+                ){
                     sh 'mvn clean install'
-    }            }
+                }
             }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
         }
     }
+}
