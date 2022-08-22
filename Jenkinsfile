@@ -4,9 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                git url: 'https://github.com/Lucas-knut/Jenkins-Maven'
+                withMaven {
+                    sh 'mvn clean install'
+    }            }
             }
-        }
         stage('Test') {
             steps {
                 echo 'Testing..'
@@ -17,5 +19,5 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        }
     }
-}
